@@ -1,0 +1,11 @@
+font awwesom: checkbox & delete icon 
+
+body display flex justify content
+
+todo list main container position absolute top 30%, add box shadow
+
+js:
+use submit listener, put e as the parameter for your fuction to stop the refreshing of the browser
+ todolist() separate this function and call it in your submit listener
+ create li element , inner text will be input value
+ append newly created element into your ul
