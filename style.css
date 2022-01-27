@@ -7,32 +7,59 @@
 }
 
 body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #0d1821;
 }
 
-.h-one {
-    font-size: 1.7em;
-}
-
-.todo_container {
-    width: 700px;
+.main_container {
+    position: absolute;
+    top: 15%;
+    width: 600px;
     height: 500px;
-    margin: 10px;
     padding: 10px;
-    border: 1px solid black;
+    border-radius: 8px;
+    background-color: #b4cded;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 #todo_input {
-    width: 300px;
+    width: 100%;
     padding: 5px;
+    margin: 30px 0 15px;
+    border: none;
+    border-radius: 3px;
+    box-sizing: border-box;
 }
 
 .todo_list {
-    display: flex;
-    flex-direction: column-reverse;
     list-style: none;
+    position: relative;
 }
+
+.todo_list li {
+   background-color: #f0f4ef;
+   border-radius: 3px;
+   padding: 5px;
+   margin-bottom: 9px;
+}
+
+/* .edit_todo {
+    position: absolute;
+    right: 15%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.del_todo {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+} */
+
+
 
 
 
