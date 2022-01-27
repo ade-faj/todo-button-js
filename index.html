@@ -9,30 +9,14 @@
 </head>
 <body>
 
-    <div class="main_container">
-        <h1 class="h-one">your list of today's procastination</h1>
+    <form class="main_container">
+            <input type="text" id="todo_input" placeholder="whatchu wanna do today?" required autocomplete="off">
 
-        <div class="todo_container">
-            <input type="text" id="todo_input" placeholder="whatchu wanna do today?" required>
-            <button class="add_todo">add</button>
-
-            <div >
-                <ul class="todo_list">
-                    <li>dance
-                        <button class="edit_todo">edit</button>
-                        <button class="del_todo">delete</button>
-                    </li>
+            <div class="todo_list">
+                <ul >
                 </ul>
             </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
+        </form>
     <script src="script.js"></script>
 </body>
 </html>
