@@ -1,32 +1,46 @@
 
-const form = document.querySelector('.main_container');
-const editButton = document.querySelector('.edit_todo');
-const delButton = document.querySelector('.del_todo');
-const todoInput = document.querySelector('#todo_input');
-const todoList = document.querySelector('.todo_list');
 
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    taskList();
+const addButton = document.querySelector('.add');
+const input = document.querySelector('.input');
+const ul = document.querySelector('.list');
+const edit = document.getElementsByClassName('fa-edit');
+const del = document.getElementsByClassName('fa-trash-alt');
+
+addButton.addEventListener('click', function (){
+    if (input.value === '') {
+        alert('write something!')
+    } else {
+        let items = JSON.parse(window.localStorage.getItem("todos"));
+
+        items.push({
+            task: input.value
+        })
+
+        window.localStorage.setItem("todos", JSON.stringify(items));
+
+        window.location.reload();
+    }
 });
 
-function taskList () {
-    let todoText = todoInput.value;
-    newList = document.createElement('li');
-    newList.innerHTML = todoText;
-    todoList.appendChild(newList);
-    todoInput.value = '';
-    const editButton = document.createElement('div');
-    editButton.innerHTML = `<button class="edit_todo">edit</button>`;
-    newList.appendChild(editButton);
-    const delButton = document.createElement('div');
-    delButton.innerHTML = `<button class="del_todo">delete</button>`;
-    newList.appendChild(delButton);
+del.addEventListener('click', function(){
+    newList.remove();
+})
+
+function getItems() {
+    let items = JSON.parse(window.localStorage.getItem("todos"));
+
+    if (items == null) {
+        window.localStorage.setItem("todos", JSON.stringify([]));
+        items = JSON.parse(window.localStorage.getItem("todos"));
+    }
+
+    items.map(task => {
+        console.log("success")
+        newList = document.createElement('li');
+        newList.innerText = task.task;
+        ul.appendChild(newList);
+        span = document.createElement('span');
+        span.innerHTML = '<i class="far fa-edit"></i> <i class="far fa-trash-alt"></i>';
+        newList.appendChild(span);
+    })
 }
-
-
-delButton.onclick = function () {
-    var todoText = todoInput.value;
-    todoList.style.display = 'none';
-}
-

@@ -9,3 +9,162 @@ use submit listener, put e as the parameter for your fuction to stop the refresh
  todolist() separate this function and call it in your submit listener
  create li element , inner text will be input value
  append newly created element into your ul
+
+
+ form element
+ input element
+
+
+
+
+/*const form = document.querySelector('.main_container');
+const todoInput = document.querySelector('#todo_input');
+const todoList = document.querySelector('.todo_list');
+
+/* const editButton = document.querySelector('.edit_todo');
+const delButton = document.querySelector('.del_todo');
+const checkBtn = document.querySelector('.check_todo');
+
+
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    taskList();
+});
+
+function taskList () {
+    let todoText = todoInput.value; //new value to be added to the list
+    newList = document.createElement('li'); //new li element wwhere new value  is added
+    newList.innerText = todoText; // this adds new value to the list element
+    todoList.appendChild(newList); //this added our new value that is now in a list to the body gan gan
+    todoInput.value = ''; 
+
+    /*const checkBtn = document.createElement('div');
+    checkBtn.innerHTML = `<i class="far fa-check-square">`;
+    newList.appendChild(checkBtn);
+
+    const editButton = document.createElement('div');
+    editButton.innerHTML = `<i class="far fa-edit">`;
+    newList.appendChild(editButton);
+
+    const delButton = document.createElement('div');
+    delButton.innerHTML = `<i class="far fa-trash-alt">`;
+    newList.appendChild(delButton);
+    
+    delButton.addEventListener('click', function() {
+        newList.remove();
+    })
+
+}*/
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #0d1821;
+}
+
+.main_container {
+    position: absolute;
+    top: 15%;
+    width: 600px;
+    height: 500px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #b4cded;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+#todo_input {
+    width: 100%;
+    padding: 5px;
+    margin: 30px 0 15px;
+    border: none;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.todo_list {
+    list-style: none;
+    position: relative;
+}
+
+.todo_list li {
+   background-color: #f0f4ef;
+   border-radius: 3px;
+   padding: 5px;
+   margin-bottom: 9px;
+}
+
+/* .edit_todo {
+    position: absolute;
+    right: 15%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.del_todo {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+} */
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <title>adefaj-todo-js</title>
+</head>
+<body>
+
+    <form class="main_container">
+            <input type="text" id="todo_input" placeholder="whatchu wanna do today?" required autocomplete="off">
+                <ul class="todo_list">
+                    <li>dance <i class="far fa-check-square"> <i class="far fa-edit"></i><i class="far fa-trash-alt"></i></li>
+                    <li>dance <i class="far fa-check-square"> <i class="far fa-edit"></i><i class="far fa-trash-alt"></i></li>
+                    <li>dance <i class="far fa-check-square"> <i class="far fa-edit"></i><i class="far fa-trash-alt"></i></li>
+                    
+                </ul>
+        </form>
+    <script src="script.js"></script>
+</body>
+</html> --></meta>
+
+
+
+create a <span></span>
+
+create i 
+
+add icon classname
+appendChild to span
+
+
+
+newList = document.createElement('li');
+    newList.innerText = input.value;
+    ul.appendChild(newList);
+    input.value = '';
+
+    span = document.createElement('span');
+    span.innerHTML = '<i class="far fa-edit"></i> <i class="far fa-trash-alt"></i>';
+    newList.appendChild(span);
