@@ -168,3 +168,74 @@ newList = document.createElement('li');
     span = document.createElement('span');
     span.innerHTML = '<i class="far fa-edit"></i> <i class="far fa-trash-alt"></i>';
     newList.appendChild(span);
+
+    span.appendChild(edit);
+        span.innerHTML = '<i class="far fa-edit"></i> <i class="far fa-trash-alt"></i>';
+
+
+
+
+
+
+
+
+
+
+
+
+const addButton = document.querySelector('.add');
+const input = document.querySelector('.input');
+const ul = document.querySelector('.list');
+
+
+addButton.addEventListener('click', function (){
+    if (input.value === '') {
+        alert('write something!')
+    } else {
+        let items = JSON.parse(window.localStorage.getItem("todos"));
+        items.push({
+            task: input.value
+        })
+
+        window.localStorage.setItem("todos", JSON.stringify(items));
+
+        window.location.reload();
+
+
+        
+    }
+});
+
+
+
+function getItems() {
+    let items = JSON.parse(window.localStorage.getItem("todos"));
+
+    if (items == null) {
+        window.localStorage.setItem("todos", JSON.stringify([]));
+        items = JSON.parse(window.localStorage.getItem("todos"));
+    }
+
+    items.map(task => {
+        console.log("success")
+        newList = document.createElement('li');
+        newList.innerText = task.task;
+        ul.appendChild(newList);
+        span = document.createElement('span');
+        del = document.createElement('div');
+        del.innerHTML = '<i class="far fa-trash-alt"></i>';
+        spaan.appendChild(del);
+        edit = document.createElement('div');
+        edit.innerHTML = '<i class="far fa-edit"></i>';
+        span.appendChild(edit);
+        newList.appendChild(span);
+
+        del.addEventListener('click', function(e){
+            console.log(e.target);
+        })
+
+        
+
+        
+    })
+}
