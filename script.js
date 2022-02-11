@@ -1,46 +1,63 @@
 
 
-const addButton = document.querySelector('.add');
-const input = document.querySelector('.input');
-const ul = document.querySelector('.list');
-const edit = document.getElementsByClassName('fa-edit');
-const del = document.getElementsByClassName('fa-trash-alt');
+const todoInput = document.querySelector('.todoInput');
+const todoButton = document.querySelector('.todoButton');
+const todoList = document.querySelector('.todoList');
 
-addButton.addEventListener('click', function (){
-    if (input.value === '') {
-        alert('write something!')
+
+todoButton.addEventListener('click', addTodo);
+todoList.addEventListener('click', delTodo);
+todoList.addEventListener('click', checkTodo);
+
+
+
+
+
+
+function addTodo(event) {
+    event.preventDefault();
+    task = todoInput.value;
+
+    if (task === '') {
+        alert('enter a task');
     } else {
-        let items = JSON.parse(window.localStorage.getItem("todos"));
+        var newTask = document.createElement('li');
+        var div = document.createElement('div');
+        div.classList.add('todo');
+        todoList.append(div);
+        div.append(newTask);
+        newTask.append(task);
+        todoInput.value = '';
 
-        items.push({
-            task: input.value
-        })
+        var checkButton = document.createElement('div');
+        checkButton.innerHTML = '<i class="fas fa-check"></i>';
+        checkButton.classList.add('checkButton');
+        div.append(checkButton);
+        todoList.append(div);
 
-        window.localStorage.setItem("todos", JSON.stringify(items));
-
-        window.location.reload();
+        var delButton = document.createElement('div');
+        delButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
+        delButton.classList.add('delButton');
+        div.append(delButton);
+        todoList.append(div);
     }
-});
-
-del.addEventListener('click', function(){
-    newList.remove();
-})
-
-function getItems() {
-    let items = JSON.parse(window.localStorage.getItem("todos"));
-
-    if (items == null) {
-        window.localStorage.setItem("todos", JSON.stringify([]));
-        items = JSON.parse(window.localStorage.getItem("todos"));
-    }
-
-    items.map(task => {
-        console.log("success")
-        newList = document.createElement('li');
-        newList.innerText = task.task;
-        ul.appendChild(newList);
-        span = document.createElement('span');
-        span.innerHTML = '<i class="far fa-edit"></i> <i class="far fa-trash-alt"></i>';
-        newList.appendChild(span);
-    })
 }
+
+function delTodo(e) {
+    const item = e.target;
+    if (item.classList[0] === 'delButton'){
+    const todo = item.parentElement;
+    todo.remove();
+    }
+
+}
+
+function checkTodo(e) {
+    const item = e.target;
+    if (item.classList[0] === 'checkButton'){
+    const todo = item.parentElement;
+    todo.classList.toggle('completed');
+    }
+
+}
+
